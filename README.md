@@ -42,7 +42,7 @@ The root layout must be of RelativeLayout, FrameLayout or similar. LinearLayout 
 with another layout. Prefer to pass in a layout which is higher in the xml tree as this will give the
 hoverview more visible space.
 
-5. Use HoverViewManager to show the tip
+5. Use HoverViewManager to show the hoverview
 
 IMPORTANT: This must be called after the layout has been drawn
 You can override the 'onWindowFocusChanged()' of an Activity and show there, Start a delayed runnable from onStart() , React to user action or any other method that works for you
@@ -56,9 +56,9 @@ mHoverViewManager.findAndDismiss(mTextView);
 ```
 Where 'mTextView' is the same view we asked to position an hoverview near it
 
-If you want to react when tip has been dismissed, Implement HoverViewManager.HoverViewListener interface and use appropriate HoverViewManager constructor
+If you want to react when hoverview has been dismissed, Implement HoverViewManager.HoverViewListener interface and use appropriate HoverViewManager constructor
 ```java
-public class MainActivity extends AppCompatActivity implements ToolTipsManager.HoverViewListener
+public class MainActivity extends AppCompatActivity implements HoverViewManager.HoverViewListener
 .
 .
 @Override
