@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements
         Log.d(TAG, "hoverview near anchor view " + anchorViewId + " dismissed");
 
         if (anchorViewId == R.id.text_view) {
-            // Do something when a hoverview near view with id "R.id.text_view" has been dismissed
+            // Do something when an hoverview near view with id "R.id.text_view" has been dismissed
         }
     }
 
