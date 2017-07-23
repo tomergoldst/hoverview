@@ -1,6 +1,8 @@
 # hoverview
 Add popup view near any other view with ease
 
+<img src="https://user-images.githubusercontent.com/19874536/28502138-7ba69d70-6ff4-11e7-8649-a7f8739ddec5.gif" width="150" height="250"/>
+
 ## Instructions
 
 1. Add a dependency to your app build.gradle
