@@ -20,6 +20,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.animation.AnticipateOvershootInterpolator;
 import android.view.animation.OvershootInterpolator;
@@ -27,9 +28,10 @@ import android.view.animation.OvershootInterpolator;
 /**
  * Created by Tomer on 18/06/2016.
  */
-class AnimationUtils {
+class DefaultHoverViewAnimator implements HoverViewAnimator {
 
-    static ObjectAnimator popup(final View view, final long duration) {
+    @Override
+    public ValueAnimator popup(final View view, final long duration) {
         view.setAlpha(0);
         view.setVisibility(View.VISIBLE);
 
@@ -43,7 +45,8 @@ class AnimationUtils {
         return popup;
     }
 
-    static ObjectAnimator popout(final View view, final long duration, final AnimatorListenerAdapter animatorListenerAdapter) {
+    @Override
+    public ValueAnimator popout(final View view, final long duration, final AnimatorListenerAdapter animatorListenerAdapter) {
         ObjectAnimator popout = ObjectAnimator.ofPropertyValuesHolder(view,
                 PropertyValuesHolder.ofFloat("alpha", 1f, 0f),
                 PropertyValuesHolder.ofFloat("scaleX", 1f, 0f),

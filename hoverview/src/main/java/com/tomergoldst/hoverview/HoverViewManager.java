@@ -19,6 +19,8 @@ package com.tomergoldst.hoverview;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.graphics.Point;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 
@@ -35,7 +37,12 @@ public class HoverViewManager {
     private Map<Integer, HoverView> mHoverViewsMap = new HashMap<>();
 
     private int mAnimationDuration;
+
+    @Nullable
     private HoverViewListener mListener;
+
+    @NonNull
+    private HoverViewAnimator mHoverViewAnimator;
 
     public interface HoverViewListener {
         void onHoverViewDismissed(View view, int anchorViewId, boolean byUser);
@@ -43,11 +50,20 @@ public class HoverViewManager {
 
     public HoverViewManager(){
         mAnimationDuration = DEFAULT_ANIM_DURATION;
+        mHoverViewAnimator = new DefaultHoverViewAnimator();
     }
 
     public HoverViewManager(HoverViewListener listener){
-        mAnimationDuration = DEFAULT_ANIM_DURATION;
+        this();
         mListener = listener;
+    }
+
+    /**
+     * Set a custom hover view animator to override show and hide animation.
+     * @param animator HoverViewAnimator
+     */
+    public void setHoverVIewAnimator(@NonNull HoverViewAnimator animator) {
+        mHoverViewAnimator = animator;
     }
 
     public View show(HoverView hoverView) {
@@ -57,7 +73,7 @@ public class HoverViewManager {
         }
 
         // animate view visibility
-        AnimationUtils.popup(view, mAnimationDuration).start();
+        mHoverViewAnimator.popup(view, mAnimationDuration).start();
 
         return view;
     }
@@ -173,7 +189,7 @@ public class HoverViewManager {
     }
 
     private void animateDismiss(final HoverView hoverView, final boolean byUser) {
-        AnimationUtils.popout(hoverView.getView(), mAnimationDuration, new AnimatorListenerAdapter() {
+        mHoverViewAnimator.popout(hoverView.getView(), mAnimationDuration, new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
