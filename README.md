@@ -8,7 +8,7 @@ Add popup view near any other view with ease
 1. Add a dependency to your app build.gradle
 ```groovy
 dependencies {
-    compile 'com.tomergoldst.android:hoverview:1.0.0'
+    compile 'com.tomergoldst.android:hoverview:1.0.1'
 }
 ```
 
