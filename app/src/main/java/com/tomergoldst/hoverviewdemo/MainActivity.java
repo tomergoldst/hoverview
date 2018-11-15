@@ -40,25 +40,25 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRootLayout = (RelativeLayout) findViewById(R.id.root_layout);
-        mParentLayout = (RelativeLayout) findViewById(R.id.parent_layout);
-        mTextView = (TextView) findViewById(R.id.text_view);
+        mRootLayout = findViewById(R.id.root_layout);
+        mParentLayout = findViewById(R.id.parent_layout);
+        mTextView = findViewById(R.id.text_view);
 
         mHoverViewManager = new HoverViewManager(this);
 
-        mAboveBtn = (Button) findViewById(R.id.button_above);
-        mBelowBtn = (Button) findViewById(R.id.button_below);
-        mLeftToBtn = (Button) findViewById(R.id.button_left_to);
-        mRightToBtn = (Button) findViewById(R.id.button_right_to);
+        mAboveBtn = findViewById(R.id.button_above);
+        mBelowBtn = findViewById(R.id.button_below);
+        mLeftToBtn = findViewById(R.id.button_left_to);
+        mRightToBtn = findViewById(R.id.button_right_to);
 
         mAboveBtn.setOnClickListener(this);
         mBelowBtn.setOnClickListener(this);
         mLeftToBtn.setOnClickListener(this);
         mRightToBtn.setOnClickListener(this);
 
-        mAlignCenter = (RadioButton) findViewById(R.id.button_align_center);
-        mAlignLeft = (RadioButton) findViewById(R.id.button_align_left);
-        mAlignRight = (RadioButton) findViewById(R.id.button_align_right);
+        mAlignCenter = findViewById(R.id.button_align_center);
+        mAlignLeft = findViewById(R.id.button_align_left);
+        mAlignRight = findViewById(R.id.button_align_right);
 
         mAlignCenter.setOnClickListener(this);
         mAlignLeft.setOnClickListener(this);
